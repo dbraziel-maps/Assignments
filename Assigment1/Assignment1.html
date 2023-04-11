@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <title>White Office Chair of the Woods</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+        <link rel = "stylesheet" href="main1.css">
+        
+    </head>
+     
+      <body>
+         <div id='map'></div>
+    
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZGJyYXppZWwtbWFwcyIsImEiOiJjbGc1Zms5NnowMnZ6M2RteTQyZWlmbHVsIn0.VkgcYU7MVwN8hE32pKHpAg';
+            
+            var map = new mapboxgl.Map({container:'map',
+                                       style: 'mapbox://styles/mapbox/navigation-night-v1',
+                                       center:[-123.36207183508637, 43.88193138629748],
+                                       zoom: 9});
+            
+            var popup = new mapboxgl.Popup({ offset: 25 })
+                    .setHTML('Hello Friend. Welcome to the White Office Chair of the Woods!');
+            
+            var marker = new mapboxgl.Marker({color: "#FFFFFF"})
+                    .setLngLat([-123.36207183508637,43.88193138629748]) // starting position 
+                    .setPopup(popup)
+                    .addTo(map);
+            
+            var popup_layer = new mapboxgl.Popup({ closeOnClick: true, anchor: 'top-right'}) 
+                    .setLngLat([-123.1,44.04]) //popup coordinates
+                    .setHTML('<h1>High Chair!</h1>') //popup text
+                    .addTo(map); //add this popup to the map!
+            
+            var popup_layer_chair = new mapboxgl.Popup({closeOnClick: true, color: '#FFFFFF'})
+                    .setLngLat([-123.63308, 43.622675])
+                    .setHTML('<a href="https://www.yellowtrace.com.au/video-in-praise-of-chairs-by-tony-zhou/">chairs are NOT what they seem</a>')
+                    .addTo(map);
+            
+            var popupTwo = new mapboxgl.Popup({ offset: 25 })
+                    .setHTML("Hello Here. I, too am chair of the wood! I'm a black rocking-chair.  Check out this link below ...");
+            
+            var marker = new mapboxgl.Marker({color: "#000000"})
+                    .setLngLat([-123.7,43.8]) // starting position 
+                    .setPopup(popupTwo)
+                    .addTo(map);
+
+        </script>
+          <div id='title'>
+     		 <h1>My Map of the White Office Chair in the Woods</h1>
+     		 <h2>By: Desiree Braziel</h2>
+ 	      </div>
+          
+      </body>
+
+</html>
