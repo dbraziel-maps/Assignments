@@ -1,0 +1,107 @@
+<!-- A Versatile Layout for Full-screen Maps by Andy Cochran
+Andy Cochran 
+From https://medium.com/nyc-planning-digital/a-versatile-layout-for-full-screen-maps-229cec508b22 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+
+
+    <!-- JavaScript Libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js"></script>
+
+  
+    <!-- CSS Links -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="VersitileLayout.css" rel="stylesheet" />
+    
+    
+  
+
+    
+</head>
+
+<body>
+    
+    <div class="site-header">
+        <strong class="site-title">Nebluous Delineation of Washington, DC</strong>
+    </div>
+
+    <div class="site-main grid-x has-content-open">
+
+        <div class="search-container cell medium-3 large-2">
+            <input type="text" placeholder="Search..." class="search" />
+            <ul class="search-results no-bullet">
+                <li>Search Result 1</li>
+                <li>Search Result 2</li>
+                <li>Search Result 3</li>
+            </ul>
+        </div>
+        
+        <div class="map-container cell medium-auto large-order-2">
+             
+        <!--  ADD iframe here, inside the Versatile Layout's map container   -->
+        <iframe src="filter-markers.html" title="Map"></iframe> 
+            
+        </div>
+
+        <!--  Sidebar panel  -->
+        <div class="sidebar cell medium-3 large-2 large-order-1 show-for-medium">
+            <h5>Directory</h5>
+            <ul>
+                <li><a class="content-link" href="#">Content</a></li>
+                <li>Music</li>
+                <li>Theatre</li>
+                <li>Bars</li>
+                <li>Bike Shops</li>
+            </ul>
+
+            <hr />
+
+        </div>
+
+        <div class="content-close-button-container">
+            <a href="#" class="content-close-button">×</a>
+        </div>
+        
+        <!--  Content panel  -->
+        <div class="content cell large-5 large-order-3">
+            <h2>Context</h2>
+            <p>Washington, DC is a city rich in history and culture, with numerous local attractions to explore. One of the most popular attractions is the National Mall, a vast green space in the heart of the city, flanked by iconic landmarks such as the Washington Monument and the Lincoln Memorial. Visitors can stroll along the mall's pathways, take in the stunning views of the city's skyline, and learn about America's past through the many museums and memorials located in the area.<p>
+            <p>Another must-visit attraction in Washington, DC is Georgetown, a charming historic neighborhood with a vibrant dining and shopping scene. Visitors can wander along the cobbled streets and admire the colonial architecture, or take a stroll along the picturesque C&O Canal. Georgetown is also home to a range of art galleries and theaters, showcasing the best of local talent.<p>
+            <p>For those interested in the arts, the Kennedy Center for the Performing Arts is a top attraction in Washington, DC. The center hosts a wide variety of performances, from ballet and opera to theater and jazz, featuring both local and international artists. Visitors can take in a show at one of the center's multiple theaters, or simply admire the stunning architecture and river views from the rooftop terrace. With so much to see and do, Washington, DC is a city that truly has something for everyone.</p>
+            
+        </div>
+
+    </div>
+
+    <script>
+       
+        $(document).ready(function() {
+
+            $('.content-close-button').click(function() {
+                $('.content-close-button').hide();
+                $('.content').hide();
+                $('.site-main').removeClass('has-content-open')
+
+                // When the map is resized programmatically, window resize must be triggered so that the map renders in the newly allotted space.
+                window.dispatchEvent(new Event('resize'));
+
+            });
+
+            $('.content-link').click(function() {
+                $('.content-close-button').show();
+                $('.content').show();
+                $('.site-main').addClass('has-content-open')
+                window.dispatchEvent(new Event('resize'));
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
