@@ -1,0 +1,82 @@
+<!-- Dry Farming Suitability Mapping Project coded By Desiree Braziel -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Name on the tab-->
+    <title>Dry Farming</title>
+
+
+    <!-- JavaScript Libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js"></script>
+
+  
+    <!-- CSS Links -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="DryFarming_Layout.css" rel="stylesheet" />
+    
+    
+  
+
+    
+</head>
+
+<body>
+    <!-- Header of the site -->
+    <div class="site-header">
+        <strong class="site-title">Dry Farming Suitability Map of Oregon</strong>
+    </div>
+    <!-- Sections of content-->
+    <div class="site-main grid-x has-content-open">
+        
+        <!--Displays the corn logo -->
+         <div class="search-container cell medium-2 large-2">
+                <div class ="logo-wrapper">
+                <img src="banner_with_logo3-scaled.webp" alt="Logo" class="logo-image" >
+                </div>
+            </div>
+        
+        <!--Displays map -->
+        <!--can edit the size-->
+        <div class="map-container cell medium-auto large-order-2">
+            <!-- map layer -->
+            <iframe src="Evapo.html" title="Map"></iframe> 
+        </div>
+
+        <!--  Sidebar panel  -->
+        <div class="sidebar cell medium-4 large-2 large-order-1 show-for-medium">
+            <h5>Attributes of Dry Farming</h5>
+           <p> Below are map layers that created our suitablilty anaylsis:</p>
+            <ul class= "tab-menu"> 
+                
+                <li><a class="section" href="Precipitation_Frame.html">Precipitation</a></li>
+                <li><a class="section" href="AWS_Frame.html">Available Water Storage</a></li>
+                <li><a class="section" href="FrostFree_Frame.html">Frost Free Periods</a></li>
+                <li><a class="section" href="Evapo_Frame.html">Potential Evapotranspiration</a>
+                <li><a class="section" href="Suit_Frame.html">Dry Farming Suitability Locations</a>
+                </li>
+                <p> </p>
+                <a class="section" href="DryFarming.html">Front Page: 
+                    <p>History of Dry Farming</p></a>
+            </ul>
+        </div>
+
+        
+        
+        <!--  Content panel  -->
+        <div class="content cell large-3 large-order-3">
+            <h2>Potential Evapotranspiration</h2>
+            
+            <p>This layer offers a 1km cell-sized raster displaying the average annual evaporative loss from the land surface, measured in millimeters per year. The data is sourced from the MOD16 Global Evapotranspiration Product, created by a team of researchers at the University of Montana, utilizing MODIS imagery. The algorithm estimates land surface temperature and albedo, then applies the Penman-Monteith equation to derive evapotranspiration values. However, it's important to note that this algorithm does not apply to urban or barren land designated as No Data, along with open water areas. For all other pixels, evapotranspiration was estimated for each 8-day period from 2000 to 2014, and these estimates were subsequently averaged to determine the annual normal. </p>
+            <!--Displays Homepage -->
+            <p>We selected for areas that have 50 inches or less of average annual evaporative loss.</p> 
+             <div class ="legend-wrapper">
+                <img src="Evapo.svg" alt="Legend" class="legend-image" >
+            </div>
+         </div>
+    <script>
+    </script>
+
+</body>
+</html>
